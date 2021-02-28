@@ -1,0 +1,30 @@
+In the attached python script called, perceptron.py, I implemented the perceptron algorithm with stochastic updating of weights using only the numpy library. This algorithm was trained and tested on a cleaned UCI adult income dataset: https://archive.ics.uci.edu/ml/datasets/Adult.
+
+To run this algorithm, use a command like: ./perceptron.py --iterations 10 --lr 1
+
+By default, the algorithm will use an iteration count of 50 and a learning rate of 1.0. 
+
+Test Results on adult data set: 
+
+The first test that I conducted looked at the variation in accuracy after 10 iterations with different learning rates. The results of this experiment immediately follow. Surprisingly, the learning rate had very litte affect on the overall accuracy of the algorithm after only 10 iterations, however, having too small a learning rate, of around 0.1, resulted in a low accuracy, likely indicating that the weights did not reach convergence. All other learning rates used in this test reached convergence at an accuracy of 81.2%.
+
+10 iterations:
+lr: accuracy 
+0.1: 0.74542016
+0.5: 0.81243352
+1.0: 0.81243352
+1.5: 0.81243352
+2: 0.81243352
+3: 0.81243352
+
+Next, I tested the algorithm at 100 iterations. The results of this test 
+immediately follow. Interestingly, even after 100 iterations, a learning rate of 0.1 still did not reach convergence, which suggests that learning is nonlinear with respect to learning rate. This should be expected for learning nonlinear functions. Additionally, learning rates of 0.5 and 1.0 both appeared to be overfit to the training data compared to their accuracies after only 10 iterations.
+
+100 iterations:
+lr: accuracy
+0.1: 0.8104243
+0.5: 0.77898594 
+1: 0.77898594 
+
+A final comment on testing: no tests that I conducted reached 100% accuracy which suggests that the data is not linearly separable. However, this cannot be stated with certainty with so little testing. The highest accuracy I achieved on this dataset was 81.4% which occured with the default settings of 50 iterations and a 
+learning rate of 1.0.

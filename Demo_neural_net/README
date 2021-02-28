@@ -1,0 +1,56 @@
+In the attached python script called, backprop.py, I implemented the back propagation algorithm with stochastic updating of weights using only the numpy library. This neural net has one hidden layer of variable size and a single node in the output layer to make binary classifications. This algorithm was trained and tested on a cleaned UCI adult income dataset: https://archive.ics.uci.edu/ml/datasets/Adult.
+
+To run this algorithm, use a command like: ./backprop.py --iterations 5 --lr 0.1
+
+By default, the algorithm will use an iteration count of 5 and a learning rate of 0.1. 
+
+Additional Input Arguments:
+--weights_files "Takes two arguments: initial weight files must correspond to the dimension of the hidden layer"
+--hidden_dim "Takes one argument: Intiger dimension of the hidden layer. Default = 5"
+--print_weights "If provided, print final learned weights to stdout"
+
+Test Results on adult data set:
+I ran a series of experiments by varying three hyperparameters: dimension of the hidden layer, number of iterations, and learning rate. Each hyperparameter was tested at three different values, conducted by a total of 27 experiments. A final test with a large hidden layer of 200 with a learning rate of 0.01 and trained on 10 iterations was conducted just for curiosity's sake. 
+
+hidden_dim = 5, 10, 50
+iterations = 1, 5, 10 
+lr = 0.01, 0.1, 0.2
+
+
+ hidden_dim   epochs 	lr	Accuracy
+```````````````````````````````````````````
+	5	1	0.01	   0.757
+	5	1	0.1	   0.811
+	5	1	0.2	   0.773
+	5	5	0.01	   0.757
+	5	5	0.1	   0.800
+	5	5	0.2	   0.787
+	5	10	0.01	   0.757
+	5	10	0.1	   0.799
+	5	10	0.2	   0.791
+	10	1	0.01	   0.757
+	10	1	0.1	   0.757
+	10	1	0.2	   0.243
+	10	5	0.01	   0.757
+	10	5	0.1	   0.798
+	10	5	0.2	   0.793
+	10	10	0.01	   0.757
+	10	10	0.1	   0.846
+	10	10	0.2	   0.790
+	50	1	0.01	   0.757
+	50	1	0.1	   0.749
+	50	1	0.2	   0.836
+	50	5	0.01	   0.757
+	50	5	0.1	   0.759
+	50	5	0.2	   0.833
+	50	10	0.01	   0.836
+	50	10	0.1	   0.828
+	50	10	0.2	   0.801
+	200	10	0.01	   0.840 
+
+Across the board, a learning rate of 0.01 produced an accuracy of 75.7%. This exact accuracy is achieved by a classier that predicts class 0 for every data point in the testing data set, so this learning rate is essentually useless for this classification problem. A learning rate of 0.1 consistently got an accuracy around 80.0%, and as one might expect, the bigger the hidden layer, the more iterations that were required to get a high accuracy at this learning rate.  The most stark trend from these experiments was how consistently well large models performed on this classification task. For 10 epochs and a hidden layer of dimension 50, each learning rate tested achieved an accuracy over 80.0%. And keeping with this trend, I also tested a model with 200 hidden nodes, which achieved an accuracy of 84.0%. However, the absolute highest accuracy achieved was with 10 hidden nodes, 10 epochs, and a lr of 0.1 (accuracy 84.6%). It's likely that many of these models converge around 83-84% and fluctuations around those values are achieved by chance. 
+
+It's also worth noting that the maximum accuracy for this NN is slightly higher than that achieved by the perceptron algorithm. 
+
+````````````````````````````````
+
