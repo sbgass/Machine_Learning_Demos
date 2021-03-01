@@ -1,0 +1,8 @@
+The associating python script, log_reg.py, is a demonstration of logistic regression algorithm with sigmoid activation function and stochastic gradient descent using the numpy library. This algorithm was trained and tested on a cleaned UCI sonar dataset: https://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+%28Sonar%2C+Mines+vs.+Rocks%29. 
+
+To run this algorithm, use a command like: ./log_reg.py
+
+By default this script will train for 1000 epochs. The learning curve for this algorithm is attached as a jpg file in this repository. The learning curve shows that this model reached convergence after about 250 epochs. 
+
+
+

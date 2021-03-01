@@ -9,3 +9,4 @@ This repo contains implementations of popular machine learning algorithms includ
 This repo contains the following algorithms: 
 (a) perceptron classifier 
 (b) single layer neural network with sigmoid activation and cross entropy loss trained with stochastic back propagation.
+(c) logistic regression with sigmoid activation and sum of squarees loss trained with stochastic gradient descent 
