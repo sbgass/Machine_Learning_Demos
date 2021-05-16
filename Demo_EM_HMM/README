@@ -1,0 +1,25 @@
+In the attached script, I implemented the EM algorithm for the HMM model on the given data. Similar to assignment 7, I ran a series of test to determing the optimal number of iterations and the optimal number of clusters for this data. 
+
+I first ran a series of experiments to test how the average log likelihood of the model would respond to various number of iterations with k=2 and the given parameter initializations. The results of this experiment can be seen below: 
+
+    Iterations 	  avg(log(likelihood))
+	1		-4.8388
+	2		-4.7391
+	4		-4.7010
+	8		-4.4716
+	16		-4.4399
+	32		-4.4391
+
+The inflection point seems to be between 4 and 8 iterations. In my second experiment, I kept the number of iterations constant at 8 and varied the number of clusters. For this test, I used random initialization for each cluster. This had the following results: 
+
+
+    Clusters 	  avg(log(likelihood))
+	2		-4.3277
+	3		-4.0455
+	4		-3.9523
+	5		-3.8227
+	10		-3.7952
+
+The random initializations, the results of this simple  test are subject to slight variations, but there appears to be an inflection point around 3 clusters. This is probably the optimal number of states for this model. 
+
+This HMM model did, in fact, out-perform the mixture of gaussian  (MoG) model on the same data. The best average log likelihood that I achieved with the the MoG model was -4.461, while this model can clearly get below -4.0. 

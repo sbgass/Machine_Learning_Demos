@@ -1,0 +1,25 @@
+In the attached script, I implemented the EM algorithm for a mixture of gaussians model for the given data. If initial model parameters are not given when the algorithm is run, I intialize the model with random parameters. This algorithm can also specify the number of clusters to look for in the data. 
+
+I first ran a series of experiments to test how the average log likelihood of the model would respond to various number of iterations with k=2. The results of this experiment can be seen below: 
+
+    Iterations 	  avg(log(likelihood))
+	1		-4.734	
+	2		-4.641
+	4		-4.596
+	8		-4.552
+	16		-4.537
+
+This experiment showed that the log likelihood leveled reaches a relatively stable position after a single iteration with successive iterations adding only incremental improvement. Notice that beause the EM algorithm is guaranteed to improve in each iteration, the average log likelihood of the data always increases (however slightly) with an increase in the number of iterations. 
+
+In my second experiment, I kept the number of iterations constant at 4 and varied the number of clusters. This had the following results: 
+
+
+    Clusters 	  avg(log(likelihood))
+	2		-4.596
+	3		-4.461
+	4		-4.690
+	5		-4.512
+	6		-4.573
+
+A more thorough experimentation of this algorithm would run the EM algorithm over a wide range of K's and plot the average log likelihood response to find the inflection point in order to find the optimal number of clusters. Additionally, because the initial clusters are determined at random in these experiments, one should really test the algorithm at each parameter setting multiple times and report the median result. But this little experiment, using k={2,6}, showed that the optimal number of clusters is probably 3 for this data. 
+
